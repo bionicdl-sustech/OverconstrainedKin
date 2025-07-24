@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="MagicLimbRobotPlanarFL">
+    <link name="MotorHip">
+        <visual name="MotorHip_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="meshes/MotorHip.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MotorHip_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="meshes/MotorHip.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="MotorThigh">
+        <visual name="MotorThigh_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/MotorThigh.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MotorThigh_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/MotorThigh.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighReal_P">
+        <visual name="ThighReal_P_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/ThighReal_P.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighReal_P_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/ThighReal_P.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfReal_P">
+        <visual name="CalfReal_P_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/CalfReal_P.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfReal_P_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/CalfReal_P.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Foot">
+        <visual name="Foot_visual">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/Foot.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Foot_collision">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/Foot.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="hip" type="revolute">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="MotorHip" />
+        <child link="MotorThigh" />
+        <axis xyz="1.0 0.0 0.0" />
+        <limit lower="-3.141592654" upper="0" effort="1000000" velocity="1000000" />
+    </joint>
+    <joint name="thigh" type="revolute">
+        <origin xyz="0.0 0.0 0.0746188" rpy="0.0 0.0 0.0" />
+        <parent link="MotorThigh" />
+        <child link="ThighReal_P" />
+        <axis xyz="0.0 0.0 1.0" />
+        <limit lower="0" upper="3.141592654" effort="1000000" velocity="1000000" />
+    </joint>
+    <joint name="knee" type="revolute">
+        <origin xyz="0.16252077 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="ThighReal_P" />
+        <child link="CalfReal_P" />
+        <axis xyz="0.0 0.0 1.0" />
+        <limit lower="-3.141592654" upper="0" effort="1000000" velocity="1000000" />
+    </joint>
+
+    <joint name="foot_fix" type="fixed">
+        <origin xyz="0.2139119 0.02217425 -0.0046188" rpy="0.0 0.0 1.6509" />
+        <parent link="CalfReal_P" />
+        <child link="Foot" />
+    </joint>
+    
+</robot>
