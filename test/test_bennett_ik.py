@@ -2,9 +2,10 @@ NUM_CONFIGS = 100000
 SUCCESS_THRESHOLD = 1e-3
 SUCCESS_THRESHOLD_JOINT = 1e-2
 
-from ov_kin import BennettKinematics
+from ov_kin import MagicLimbBennettKin
 import numpy as np
 import math
+from tqdm import tqdm
 
 if __name__ == "__main__":
     # generate random joint configurations
@@ -17,7 +18,7 @@ if __name__ == "__main__":
     )
 
     # create BennettKinematics instance
-    bennett_kin = BennettKinematics()
+    bennett_kin = MagicLimbBennettKin()
 
     ik_erros = []
     hip_pos_errors = []
@@ -25,20 +26,25 @@ if __name__ == "__main__":
     calf_pos_errors = []
     failed_xyz = []
     domain_error_failed_xyz = []
-    for i in range(NUM_CONFIGS):
+    for i in tqdm(range(NUM_CONFIGS)):
         current_joint_pos = actuator_joint_pos[i]
         # forward kinematics
         pos, T = bennett_kin.forward_kinematics(current_joint_pos)
         # print(f"Forward Kinematics Position (MR): {pos}")
 
+        # Generate a random joint position noise
+        noise = np.random.uniform(-0.1, 0.1, size=current_joint_pos.shape)
+        # Add noise to the current joint position
+        reference_joint_pos = current_joint_pos + noise
+
         # analytic inverse kinematics
-        try:
-            ik_actuator_pos_exp, analytic_error, ik_sol = bennett_kin.analytic_ik(goal_pos_in_hip_frame=pos)
-        except Exception as e:
-            print(f"Error in analytic IK for configuration {i}: {e}")
-            failed_xyz.append(pos)
-            domain_error_failed_xyz.append(pos)
-            continue
+        # try:
+        ik_actuator_pos_exp, success, ik_sol, analytic_error = bennett_kin.analytic_ik(goal_pos_in_hip_frame=pos)
+        # except Exception as e:
+        #     print(f"Error in analytic IK for configuration {i}: {e}")
+        #     failed_xyz.append(pos)
+        #     domain_error_failed_xyz.append(pos)
+        #     continue
         # print(f"analytic Inverse Kinematics Actuator Position: {ik_actuator_pos_exp}")
 
         # Calculate joint pos errors

@@ -17,7 +17,7 @@ if __name__ == "__main__":
     print(f"Forward Kinematics Position (RTB): {pos}")
 
     # Verify inverse kinematics
-    # pos = [ 0.0350,  0.2610, -0.2800]
+    pos = [0.05629575625061989, -0.03160595893859863, 0.05066715180873871]
     ik_actuator_pos, _ = bennett_kin.inverse_kinematics(goal_pos_in_hip_frame=pos, ik_func="ik_GN")
     ik_actuator_pos_exp, analytic_error, _ = bennett_kin.analytic_ik(goal_pos_in_hip_frame=pos)
     print(f"Numerical Inverse Kinematics Actuator Position: {ik_actuator_pos}")
