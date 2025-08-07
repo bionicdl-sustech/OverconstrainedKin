@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     # Test forward kinematics
     zero_actuator_joint_pos = np.array([0, 0, 0])
-    actuator_joint_pos = np.array([-np.pi/3, 2*np.pi/4, -np.pi/3])
+    actuator_joint_pos = np.array([-np.pi/2, 2*np.pi/4, -np.pi/3])
     pos, T = planar_kin.forward_kinematics(actuator_joint_pos)
     print(f"Forward Kinematics Position (MR): {pos}")
     pos, T = planar_kin.forward_kinematics_rtb(actuator_joint_pos)
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     ik_actuator_pos, error = planar_kin.inverse_kinematics(goal_pos_in_hip_frame=pos, ik_func="ik_GN")
     print(f"Numerical Inverse Kinematics Actuator Position: {ik_actuator_pos}")
     print(f"Numerical Inverse Kinematics Error: {error}")
-    ik_actuator_pos_exp, analytic_error = planar_kin.analytic_ik(goal_pos_in_hip_frame=pos)
+    ik_actuator_pos_exp, success, ik_sol, analytic_error = planar_kin.analytic_ik(goal_pos_in_hip_frame=pos)
     print(f"Analytic Inverse Kinematics Actuator Position: {ik_actuator_pos_exp}")
     print(f"Actuator Joint Positions: {actuator_joint_pos}")
 
@@ -43,4 +43,4 @@ if __name__ == "__main__":
     print(f"Inverse Velocity Kinematics Actuator Joint Velocities: {actuator_joint_vel}")
 
     # Visualize
-    planar_kin.visualize(ik_actuator_pos, backend="swift", block=True)
+    planar_kin.visualize(zero_actuator_joint_pos, backend="swift", block=True)

@@ -23,7 +23,8 @@ class GeneralBennettIK:
     def __init__(
             self,
             l, x0, y0, z0, zt, beta,
-            thigh_offset=0.0, knee_offset=0.0
+            thigh_offset=0.0, knee_offset=0.0,
+            success_thresh = 1e-6,
         ):
         self.l = l  # Linkage length, same length for all links
         self.x0 = x0  # x pos of foot in initial configuration
@@ -34,6 +35,8 @@ class GeneralBennettIK:
 
         self.thigh_offset = thigh_offset  # Motor thigh angular offset in radians
         self.knee_offset = knee_offset  # Motor knee angular offset in radians
+
+        self.success_thresh = success_thresh  # Threshold for success in IK
 
         self.sin_beta = sin(self.beta)
         self.cos_beta = cos(self.beta)
@@ -53,16 +56,16 @@ class GeneralBennettIK:
         if self.q3_single_sol > 0:
             self.q3_single_sol -= pi
 
-    def analytical_inverse_kinematics_span_tree(self, pos: list) -> tuple[list, list]:
+    def analytical_inverse_kinematics_span_tree(self, pos: list, reference_joint_pos: list | None = None) -> tuple[list, list]:
         ''' Analytical inverse kinematics for the Bennett linkage.
         Args:
             pos: Desired foot position in the hip frame, shape (N, 3).
-            ref_pos: Reference joint positions to choose the best solution, shape (N, 3).
-            ref_pos_weight: Weight for the reference position error when choosing the best solution.
+            reference_joint_pos: Reference joint positions. When two valid solutions are found, \
+                the one closest to the reference will be selected. If set to None, the reference will not be used. \
+                the first valid solution will be returned.
         Returns:
             tuple: (best_solution, success, solutions, errors)
         '''
-        import torch
         
         # There are totally 8 possible solutions
         ik_solutions = [[0 for i in range(3)] for j in range(8)]
@@ -169,20 +172,38 @@ class GeneralBennettIK:
             ik_solutions[7][1] = q2_2
 
         ik_errors = []
+        valid_solutions = []
+        valid_ik_errors = []
         for ik_sol in ik_solutions:
             # Calculate the forward kinematics for each solution
             fk_pos, _ = self.forward_kinematics_span_tree(ik_sol)
             # Calculate the errors for each solution
             ik_error = sqrt( (fk_pos[0]-x)**2 + (fk_pos[1]-y)**2 + (fk_pos[2]-z)**2 )
             ik_errors.append(ik_error)
+            if ik_error < self.success_thresh:
+                valid_solutions.append(ik_sol)
+                valid_ik_errors.append(ik_error)
 
-        # Select the solution with the minimum error
-        min_error = min(ik_errors)
-        min_error_indices = ik_errors.index(min_error)
-        best_solutions = ik_solutions[min_error_indices]
+        if not valid_solutions:
+            return None, False, None, None
+        
+        if len(valid_solutions) == 1 or reference_joint_pos is None:
+            # If only one valid solution, return it directly
+            return valid_solutions[0], True, ik_solutions, valid_ik_errors[0]
+        else:
+            # Calculate errors with respect to the reference joint positions
+            ref_errors = []
+            for sol in valid_solutions:
+                ref_error = sqrt( (sol[0]-reference_joint_pos[0])**2 + (sol[1]-reference_joint_pos[1])**2 + (sol[2]-reference_joint_pos[2])**2 )
+                ref_errors.append(ref_error)
 
-        # Adjust the solutions to account for the actuator offsets
-        return best_solutions, True, ik_solutions, ik_errors[min_error_indices]
+            # Find the solution with the minimum error
+            min_ref_error = min(ref_errors)
+            best_solution_index = ref_errors.index(min_ref_error)
+            best_solution = valid_solutions[best_solution_index]
+
+            # Return the best solution, success flag, all solutions, and their errors
+            return best_solution, True, ik_solutions, valid_ik_errors[best_solution_index]
     
     def wrap_q2(self, q2: float) -> float:
         """Wraps the angle to the range [0, 2*pi].

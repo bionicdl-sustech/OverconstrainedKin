@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     # Test forward kinematics
     zero_actuator_joint_pos = np.array([0, 0, 0])
-    actuator_joint_pos = np.array([-0.49511811,  0.00210863, -1.27624052])
+    actuator_joint_pos = np.array([-np.pi/2, 2*np.pi/4, -np.pi/3])
     pos, T = bennett_kin.forward_kinematics(actuator_joint_pos)
     print(f"Forward Kinematics Position (MR): {pos}")
     pos, T = bennett_kin.forward_kinematics_rtb(actuator_joint_pos)

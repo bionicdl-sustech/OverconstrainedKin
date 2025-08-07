@@ -6,6 +6,7 @@ from ov_kin import MagicLimbBennettKin
 import numpy as np
 import math
 from tqdm import tqdm
+import time
 
 if __name__ == "__main__":
     # generate random joint configurations
@@ -26,6 +27,7 @@ if __name__ == "__main__":
     calf_pos_errors = []
     failed_xyz = []
     domain_error_failed_xyz = []
+    time_elapsed = []
     for i in tqdm(range(NUM_CONFIGS)):
         current_joint_pos = actuator_joint_pos[i]
         # forward kinematics
@@ -39,7 +41,10 @@ if __name__ == "__main__":
 
         # analytic inverse kinematics
         # try:
-        ik_actuator_pos_exp, success, ik_sol, analytic_error = bennett_kin.analytic_ik(goal_pos_in_hip_frame=pos)
+        time_start = time.time()
+        ik_actuator_pos_exp, success, ik_sol, analytic_error = bennett_kin.analytic_ik(goal_pos_in_hip_frame=pos, reference_actuator_joint_pos=reference_joint_pos)
+        time_end = time.time()
+        time_elapsed.append(time_end - time_start)
         # except Exception as e:
         #     print(f"Error in analytic IK for configuration {i}: {e}")
         #     failed_xyz.append(pos)
@@ -115,3 +120,8 @@ if __name__ == "__main__":
         print(f"Max Z Position of Domain Error Failed Configurations: {max_domain_error_failed_z:.4f}")
     else:
         print("No domain error failed configurations found.")
+
+    # Print average, max and min time elapsed for IK computation
+    print(f"Average Time Elapsed for IK Computation: {np.mean(time_elapsed) * 1000:.4f} ms")
+    print(f"Max Time Elapsed for IK Computation: {np.max(time_elapsed) * 1000:.4f} ms")
+    print(f"Min Time Elapsed for IK Computation: {np.min(time_elapsed) * 1000:.4f} ms")

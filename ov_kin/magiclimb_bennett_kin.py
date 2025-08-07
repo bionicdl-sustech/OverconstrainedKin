@@ -128,8 +128,24 @@ class MagicLimbBennettKin(BaseKinematics, GeneralBennettIK):
 
         return vel_mapping
 
-    def analytic_ik(self, goal_pos_in_hip_frame):
-        span_tree_solution, success, ik_solutions, ik_errors = self.analytical_inverse_kinematics_span_tree(goal_pos_in_hip_frame)
+    def analytic_ik(self, goal_pos_in_hip_frame, reference_actuator_joint_pos=None):
+        """Analytic inverse kinematics for the MagicLimb Planar configuration.
+        
+        Args:
+            goal_pos_in_hip_frame: Desired foot position in the hip frame, shape (3,).
+            reference_actuator_joint_pos: Reference actuator joint positions to choose the best solution, shape (3,). 
+                If set to None, the reference will not be used and the first valid solution will be returned.
+        
+        Returns:
+            tuple: (actuator_solution, success, ik_solutions, ik_errors)
+        """
+        # Call the analytical inverse kinematics from GeneralBennettIK
+        # This will return the span tree joint positions
+        if reference_actuator_joint_pos is not None:
+            reference_joint_pos = self.span_tree_joint_pos_from_actuator(reference_actuator_joint_pos)
+        else:
+            reference_joint_pos = None
+        span_tree_solution, success, ik_solutions, ik_errors = self.analytical_inverse_kinematics_span_tree(goal_pos_in_hip_frame, reference_joint_pos=reference_joint_pos)
         actuator_solution = self.actuator_joint_pos_from_span_tree(span_tree_solution)
         return actuator_solution, success, ik_solutions, ik_errors
 
