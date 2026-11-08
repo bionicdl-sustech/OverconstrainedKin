@@ -60,7 +60,7 @@ OverconstrainedKin/
 If you only need the PyTorch kinematics solver (e.g., inside an Isaac Lab / Isaac Gym reinforcement learning environment):
 
 ```bash
-git clone https://github.com/<your-username>/OverconstrainedKin.git
+git clone https://github.com/bionicdl-sustech/OverconstrainedKin.git
 cd OverconstrainedKin
 pip install -e .
 ```
