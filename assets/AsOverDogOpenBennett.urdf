@@ -1,0 +1,669 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="AsOverDogOpenBennett">
+    <link name="MainBody">
+        <inertial>
+            <origin xyz="0.00533 0.00034 0.00157" rpy="0.0 0.0 0.0" />
+            <mass value="3.64026" />
+            <inertia 
+                ixx="0.01256" 
+                iyy="0.03567" 
+                izz="0.04131" 
+                ixy="-0.00013" 
+                iyz="0.00007" 
+                ixz="-0.00026" 
+            />
+        </inertial>
+        <visual name="MainBody_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="meshes/MainBody.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MainBody_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="collision_meshes/MainBody.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="MotorThigh_FL">
+        <inertial>
+            <origin xyz="-0.004924492073835738 0.000197898001364738 0.04436150569736098" rpy="0.0 -0.0 0.0" />
+            <mass value="0.4156301596021334" />
+            <inertia ixx="0.0002887225317233337" iyy="0.00019798026767197004" izz="0.00015590056146596773" ixy="1.370064212307367e-07" iyz="1.809616254947261e-06" ixz="1.3040269879129915e-05" />
+        </inertial>
+        <visual name="MotorThigh_FL_visual">
+            <origin xyz="-2.8865798640252883e-16 -2.247091401841317e-15 -2.877698079828406e-15" rpy="3.1415926535897896 -5.666247245445483e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/MotorThigh.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MotorThigh_FL_collision">
+            <origin xyz="-2.8865798640252883e-16 -2.247091401841317e-15 -2.877698079828406e-15" rpy="3.1415926535897896 -5.666247245445483e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="collision_meshes/MotorThigh.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="MotorThigh_RR">
+        <inertial>
+            <origin xyz="-0.004924492073835065 0.00019789800136868152 0.04436150569737064" rpy="0.0 -0.0 0.0" />
+            <mass value="0.4156301596021334" />
+            <inertia ixx="0.00028872253172333544" iyy="0.00019798026767197004" izz="0.00015590056146596887" ixy="1.3700642123084784e-07" iyz="1.8096162549481624e-06" ixz="1.3040269879133536e-05" />
+        </inertial>
+        <visual name="MotorThigh_RR_visual">
+            <origin xyz="3.9079850466807216e-16 1.7497114868092467e-15 6.8567374000849666e-15" rpy="3.1415926535897887 4.9937086337430565e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/MotorThigh.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MotorThigh_RR_collision">
+            <origin xyz="3.9079850466807216e-16 1.7497114868092467e-15 6.8567374000849666e-15" rpy="3.1415926535897887 4.9937086337430565e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="collision_meshes/MotorThigh.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="MotorThigh_FR">
+        <inertial>
+            <origin xyz="-0.0049244920738357855 0.0001978980013649423 0.04436150569736059" rpy="0.0 -0.0 0.0" />
+            <mass value="0.4156301596021334" />
+            <inertia ixx="0.00028872253172333544" iyy="0.00019798026767196483" izz="0.0001559005614659674" ixy="1.370064212307363e-07" iyz="1.8096162549472625e-06" ixz="1.304026987913157e-05" />
+        </inertial>
+        <visual name="MotorThigh_FR_visual">
+            <origin xyz="-3.286260152890332e-16 -2.033928581113287e-15 -3.232969447708456e-15" rpy="3.1415926535897896 -4.026947902824392e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/MotorThigh.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MotorThigh_FR_collision">
+            <origin xyz="-3.286260152890332e-16 -2.033928581113287e-15 -3.232969447708456e-15" rpy="3.1415926535897896 -4.026947902824392e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="collision_meshes/MotorThigh.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="MotorThigh_RL">
+        <inertial>
+            <origin xyz="-0.004924492073834986 0.0001978980013690812 0.044361505697370414" rpy="0.0 -0.0 0.0" />
+            <mass value="0.4156301596021334" />
+            <inertia ixx="0.00028872253172333023" iyy="0.0001979802676719631" izz="0.00015590056146596736" ixy="1.3700642123073754e-07" iyz="1.8096162549477349e-06" ixz="1.3040269879130644e-05" />
+        </inertial>
+        <visual name="MotorThigh_RL_visual">
+            <origin xyz="4.697985472564658e-16 1.9451107391432742e-15 6.608047442568932e-15" rpy="3.141592653589793 2.3771031255257195e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/MotorThigh.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="MotorThigh_RL_collision">
+            <origin xyz="4.697985472564658e-16 1.9451107391432742e-15 6.608047442568932e-15" rpy="3.141592653589793 2.3771031255257195e-15 3.141592653589793" />
+            <geometry>
+                <mesh filename="collision_meshes/MotorThigh.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfOppo_B_FL">
+        <inertial>
+            <origin xyz="0.05646930834233665 0.011855380782062257 -0.005306665843263279" rpy="0.0 -0.0 0.0" />
+            <mass value="0.08412240010356735" />
+            <inertia ixx="1.2873637568593566e-05" iyy="0.00027688768781498636" izz="0.0002842788879219866" ixy="-2.7099340232057743e-05" iyz="7.152062398297177e-07" ixz="1.350500022574784e-06" />
+        </inertial>
+        <visual name="CalfOppo_B_FL_visual">
+            <origin xyz="-2.9842794901924207e-15 -1.971756091734278e-15 -0.005999999999998487" rpy="-1.5707963267948974 -7.365038364415856e-17 1.5707963267948992" />
+            <geometry>
+                <mesh filename="meshes/CalfOppo_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfOppo_B_FL_collision">
+            <origin xyz="-2.9842794901924207e-15 -1.971756091734278e-15 -0.005999999999998487" rpy="-1.5707963267948974 -7.365038364415856e-17 1.5707963267948992" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfOppo_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfOppo_B_RR">
+        <inertial>
+            <origin xyz="-0.05646930834234699 -0.011855380782066143 -0.005306665843265801" rpy="0.0 -0.0 4.007144476403401e-49" />
+            <mass value="0.08412240010356735" />
+            <inertia ixx="1.2873637568593457e-05" iyy="0.00027688768781498636" izz="0.0002842788879219892" ixy="-2.7099340232057743e-05" iyz="-7.152062398297245e-07" ixz="-1.350500022573048e-06" />
+        </inertial>
+        <visual name="CalfOppo_B_RR_visual">
+            <origin xyz="-7.283063041541026e-15 -1.9451107391432742e-15 -0.006000000000000947" rpy="-1.5707963267948966 9.607502068330216e-17 -1.570796326794894" />
+            <geometry>
+                <mesh filename="meshes/CalfOppo_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfOppo_B_RR_collision">
+            <origin xyz="-7.283063041541026e-15 -1.9451107391432742e-15 -0.006000000000000947" rpy="-1.5707963267948966 9.607502068330216e-17 -1.570796326794894" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfOppo_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfOppo_B_FR">
+        <inertial>
+            <origin xyz="0.05646922970175833 0.011855382558881775 0.005306669701322529" rpy="0.0 -0.0 0.0" />
+            <mass value="0.08412234457106307" />
+            <inertia ixx="1.2873634516713745e-05" iyy="0.0002768875563230839" izz="0.0002842787700695166" ixy="-2.709937205814248e-05" iyz="-7.152057311688426e-07" ixz="-1.3505726618426526e-06" />
+        </inertial>
+        <visual name="CalfOppo_B_FR_visual">
+            <origin xyz="-3.481659405224491e-15 1.794120407794253e-15 0.005999999999999197" rpy="1.5707963267948968 -5.649815749769185e-17 1.5707963267948932" />
+            <geometry>
+                <mesh filename="meshes/CalfOppo_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfOppo_B_FR_collision">
+            <origin xyz="-3.481659405224491e-15 1.794120407794253e-15 0.005999999999999197" rpy="1.5707963267948968 -5.649815749769185e-17 1.5707963267948932" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfOppo_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfOppo_B_RL">
+        <inertial>
+            <origin xyz="-0.05646922970176863 -0.011855382558877357 0.005306669701323443" rpy="0.0 4.3790577010150533e-47 -1.2093043428541803e-49" />
+            <mass value="0.08412234457106307" />
+            <inertia ixx="1.2873634516713745e-05" iyy="0.00027688755632308566" izz="0.0002842787700695192" ixy="-2.7099372058140853e-05" iyz="7.152057311685766e-07" ixz="1.3505726618419928e-06" />
+        </inertial>
+        <visual name="CalfOppo_B_RL_visual">
+            <origin xyz="-6.927791673660977e-15 2.3092638912203257e-15 0.006000000000000352" rpy="1.5707963267949006 5.520649131618614e-17 -1.5707963267949052" />
+            <geometry>
+                <mesh filename="meshes/CalfOppo_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfOppo_B_RL_collision">
+            <origin xyz="-6.927791673660977e-15 2.3092638912203257e-15 0.006000000000000352" rpy="1.5707963267949006 5.520649131618614e-17 -1.5707963267949052" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfOppo_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighReal_B_FL">
+        <inertial>
+            <origin xyz="0.031278785437190905 0.0019322034661189314 -0.010365676398811807" rpy="1.3681550145958525e-77 -0.0 0.0" />
+            <mass value="0.48517921871146247" />
+            <inertia ixx="0.0007831290642074246" iyy="0.0007138265485684067" izz="0.00023640859711558275" ixy="-2.2827607041680408e-05" iyz="7.510261213137136e-05" ixz="0.00011951065685207676" />
+        </inertial>
+        <visual name="ThighReal_B_FL_visual">
+            <origin xyz="-1.3877787807814457e-15 2.0250467969162858e-15 2.913225216616411e-15" rpy="-3.141592653589793 1.570796326794894 0" />
+            <geometry>
+                <mesh filename="meshes/ThighReal_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighReal_B_FL_collision">
+            <origin xyz="-1.3877787807814457e-15 2.0250467969162858e-15 2.913225216616411e-15" rpy="-3.141592653589793 1.570796326794894 0" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighReal_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighReal_B_RR">
+        <inertial>
+            <origin xyz="0.031278785437193236 -0.001932203466114979 0.010365676398821896" rpy="9.93885030833782e-79 -0.0 0.0" />
+            <mass value="0.48517921871146247" />
+            <inertia ixx="0.0007831290642074072" iyy="0.0007138265485684032" izz="0.00023640859711558144" ixy="2.282760704168171e-05" iyz="7.510261213137136e-05" ixz="-0.00011951065685207516" />
+        </inertial>
+        <visual name="ThighReal_B_RR_visual">
+            <origin xyz="9.636735853746358e-16 1.9273471707492717e-15 7.069900220812997e-15" rpy="9.381338752706689e-17 -1.5707963267948943 0" />
+            <geometry>
+                <mesh filename="meshes/ThighReal_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighReal_B_RR_collision">
+            <origin xyz="9.636735853746358e-16 1.9273471707492717e-15 7.069900220812997e-15" rpy="9.381338752706689e-17 -1.5707963267948943 0" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighReal_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighReal_B_FR">
+        <inertial>
+            <origin xyz="0.03127892184077312 -0.0019386779985040548 -0.010360285498619141" rpy="-2.1081279746089621e-78 -0.0 0.0" />
+            <mass value="0.48517875455242476" />
+            <inertia ixx="0.0007831730601744885" iyy="0.0007138616572297911" izz="0.00023641537126372307" ixy="2.2749700805617363e-05" iyz="-7.507826514975461e-05" ixz="0.00011957604887620828" />
+        </inertial>
+        <visual name="ThighReal_B_FR_visual">
+            <origin xyz="-8.304468224196171e-16 1.8562928971732616e-15 3.481659405224491e-15" rpy="9.381338752700229e-17 1.570796326794894 0" />
+            <geometry>
+                <mesh filename="meshes/ThighReal_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighReal_B_FR_collision">
+            <origin xyz="-8.304468224196171e-16 1.8562928971732616e-15 3.481659405224491e-15" rpy="9.381338752700229e-17 1.570796326794894 0" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighReal_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighReal_B_RL">
+        <inertial>
+            <origin xyz="0.0312789218407743 0.0019386779985082737 0.010360285498629588" rpy="-1.106006373218663e-61 -0.0 0.0" />
+            <mass value="0.48517875455242476" />
+            <inertia ixx="0.0007831730601744816" iyy="0.0007138616572297807" izz="0.0002364153712637222" ixy="-2.2749700805617363e-05" iyz="-7.507826514975635e-05" ixz="-0.00011957604887620668" />
+        </inertial>
+        <visual name="ThighReal_B_RL_visual">
+            <origin xyz="3.663735981263017e-16 2.3003821070233242e-15 6.785683126508957e-15" rpy="-3.141592653589793 -1.5707963267948895 0" />
+            <geometry>
+                <mesh filename="meshes/ThighReal_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighReal_B_RL_collision">
+            <origin xyz="3.663735981263017e-16 2.3003821070233242e-15 6.785683126508957e-15" rpy="-3.141592653589793 -1.5707963267948895 0" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighReal_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfReal_B_FL">
+        <inertial>
+            <origin xyz="0.09755952281092277 0.0017723894900087878 0.0004494706292010164" rpy="0.0 4.3790577010150533e-47 -2.1895288505075267e-47" />
+            <mass value="0.11460553674577356" />
+            <inertia ixx="2.2650853227749448e-05" iyy="0.0005792232472223446" izz="0.0005787600563006657" ixy="5.85481202667529e-06" iyz="-9.557000982620984e-07" ixz="-2.5881712905650544e-05" />
+        </inertial>
+        <visual name="CalfReal_B_FL_visual">
+            <origin xyz="0.016999999999996688 0.00500000447601197 -0.0030000017905274404" rpy="2.1034454647746626e-15 1.5707963267948928 0" />
+            <geometry>
+                <mesh filename="meshes/CalfReal_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfReal_B_FL_collision">
+            <origin xyz="0.016999999999996688 0.00500000447601197 -0.0030000017905274404" rpy="2.1034454647746626e-15 1.5707963267948928 0" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfReal_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfReal_B_RR">
+        <inertial>
+            <origin xyz="-0.09755952281093436 0.001275447728151673 0.0013101990091454142" rpy="0.0 -0.0 0.0" />
+            <mass value="0.11460553674577356" />
+            <inertia ixx="2.2650853227750315e-05" iyy="0.0005780481934675701" izz="0.0005799351100553846" ixy="1.9486814856406122e-05" iyz="-2.7728249663087597e-07" ixz="-1.801127240231372e-05" />
+        </inertial>
+        <visual name="CalfReal_B_RR_visual">
+            <origin xyz="-0.017000000000007915 -9.807552398535701e-05 0.005830131790523705" rpy="1.5707963267948992 -0.5235987755983003 -1.5707963267948981" />
+            <geometry>
+                <mesh filename="meshes/CalfReal_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfReal_B_RR_collision">
+            <origin xyz="-0.017000000000007915 -9.807552398535701e-05 0.005830131790523705" rpy="1.5707963267948992 -0.5235987755983003 -1.5707963267948981" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfReal_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfReal_B_FR">
+        <inertial>
+            <origin xyz="0.0975590328733118 -0.0017723009913101606 0.00044916852148139345" rpy="0.0 -0.0 0.0" />
+            <mass value="0.11460763574498882" />
+            <inertia ixx="2.265175852390216e-05" iyy="0.0005792413830830848" izz="0.0005787777339496493" ixy="-5.861707805848661e-06" iyz="9.55838728084401e-07" ixz="-2.5880322975300384e-05" />
+        </inertial>
+        <visual name="CalfReal_B_FR_visual">
+            <origin xyz="0.016999999999996546 -0.0050000044760111 -0.0030000017905247134" rpy="3.141592653589792 -1.5707963267948941 0" />
+            <geometry>
+                <mesh filename="meshes/CalfReal_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfReal_B_FR_collision">
+            <origin xyz="0.016999999999996546 -0.0050000044760111 -0.0030000017905247134" rpy="3.141592653589792 -1.5707963267948941 0" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfReal_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CalfReal_B_RL">
+        <inertial>
+            <origin xyz="-0.09755903287332253 -0.0012751418458364272 0.001310273420891921" rpy="0.0 -2.1895288505075267e-47 0.0" />
+            <mass value="0.11460763574498882" />
+            <inertia ixx="2.2651758523901293e-05" iyy="0.0005780658656125454" izz="0.0005799532514201365" ixy="-1.9482163251833456e-05" iyz="2.771534000324473e-07" ixz="-1.8016549357076327e-05" />
+        </inertial>
+        <visual name="CalfReal_B_RL_visual">
+            <origin xyz="-0.017000000000007134 9.807552398932717e-05 0.005830131790528697" rpy="1.5707963267948821 0.5235987755983061 -1.5707963267949054" />
+            <geometry>
+                <mesh filename="meshes/CalfReal_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CalfReal_B_RL_collision">
+            <origin xyz="-0.017000000000007134 9.807552398932717e-05 0.005830131790528697" rpy="1.5707963267948821 0.5235987755983061 -1.5707963267949054" />
+            <geometry>
+                <mesh filename="collision_meshes/CalfReal_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighOppo_B_FL">
+        <inertial>
+            <origin xyz="-0.027058118274516544 0.001495233572711774 -0.05456059674679221" rpy="0.0 1.2349623927666891e-62 -4.3790577010150533e-47" />
+            <mass value="0.07407175060295967" />
+            <inertia ixx="0.00021390792233064672" iyy="0.0002836607935514517" izz="7.751453140620996e-05" ixy="3.379640594632177e-06" iyz="5.0665486251366275e-06" ixz="-0.00011979891440722069" />
+        </inertial>
+        <visual name="ThighOppo_B_FL_visual">
+            <origin xyz="-0.0040849332094742155 0.002830129999998459 -0.01727147186433168" rpy="-2.860557752086981 -0.4478323969289312 2.5535900500422293" />
+            <geometry>
+                <mesh filename="meshes/ThighOppo_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighOppo_B_FL_collision">
+            <origin xyz="-0.0040849332094742155 0.002830129999998459 -0.01727147186433168" rpy="-2.860557752086981 -0.4478323969289312 2.5535900500422293" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighOppo_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighOppo_B_RR">
+        <inertial>
+            <origin xyz="0.02705811827451882 0.0014952335727143407 0.05456059674680407" rpy="0.0 -1.902166655495252e-66 0.0" />
+            <mass value="0.07407175060295967" />
+            <inertia ixx="0.00021390792233063268" iyy="0.00028366079355143965" izz="7.751453140620504e-05" ixy="-3.3796405946313405e-06" iyz="-5.066548625133606e-06" ixz="-0.00011979891440721232" />
+        </inertial>
+        <visual name="ThighOppo_B_RR_visual">
+            <origin xyz="0.004084933209476382 0.0028301300000010167 0.01727147186434344" rpy="0.2810349015028136 0.44783239692892923 0.5880026035475657" />
+            <geometry>
+                <mesh filename="meshes/ThighOppo_B_FL.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighOppo_B_RR_collision">
+            <origin xyz="0.004084933209476382 0.0028301300000010167 0.01727147186434344" rpy="0.2810349015028136 0.44783239692892923 0.5880026035475657" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighOppo_B_FL.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighOppo_B_FR">
+        <inertial>
+            <origin xyz="-0.03372203363442463 -0.001495412483179246 0.05071429508678008" rpy="0.0 -3.19385892911094e-64 0.0" />
+            <mass value="0.07407030593165097" />
+            <inertia ixx="0.00021535631704054948" iyy="0.0002836549900579518" izz="7.605984859654172e-05" ixy="-2.697648315399085e-06" iyz="5.459130449109842e-06" ixz="0.00011895790284407445" />
+        </inertial>
+        <visual name="ThighOppo_B_FR_visual">
+            <origin xyz="-0.012915066790524872 -0.0028301299999992048 0.012173391864332004" rpy="-0.2810349015028114 0.44783239692892945 2.5535900500422266" />
+            <geometry>
+                <mesh filename="meshes/ThighOppo_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighOppo_B_FR_collision">
+            <origin xyz="-0.012915066790524872 -0.0028301299999992048 0.012173391864332004" rpy="-0.2810349015028114 0.44783239692892945 2.5535900500422266" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighOppo_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="ThighOppo_B_RL">
+        <inertial>
+            <origin xyz="0.03372203363442498 -0.0014954124831815464 -0.05071429508679174" rpy="0.0 -1.2626783865701276e-62 0.0" />
+            <mass value="0.07407030593165097" />
+            <inertia ixx="0.00021535631704054778" iyy="0.0002836549900579431" izz="7.605984859653809e-05" ixy="2.6976483153983887e-06" iyz="-5.459130449106739e-06" ixz="0.00011895790284407095" />
+        </inertial>
+        <visual name="ThighOppo_B_RL_visual">
+            <origin xyz="0.012915066790525422 -0.0028301300000018073 -0.012173391864343231" rpy="2.8605577520869923 -0.44783239692892574 0.5880026035475712" />
+            <geometry>
+                <mesh filename="meshes/ThighOppo_B_FR.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="ThighOppo_B_RL_collision">
+            <origin xyz="0.012915066790525422 -0.0028301300000018073 -0.012173391864343231" rpy="2.8605577520869923 -0.44783239692892574 0.5880026035475712" />
+            <geometry>
+                <mesh filename="collision_meshes/ThighOppo_B_FR.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="FootTip_FL">
+        <inertial>
+            <origin xyz="-1.616484723854228e-15 -9.592326932761353e-16 -0.005370312798378123" rpy="-5.397605346934029e-79 -5.473822126268817e-48 0.0" />
+            <mass value="0.04476184024328765" />
+            <inertia ixx="1.072475006932104e-05" iyy="1.0721691097843874e-05" izz="6.6402707008874625e-06" ixy="-2.649147005738929e-09" iyz="2.1766217225798187e-19" ixz="-4.336811631086018e-19" />
+        </inertial>
+        <visual name="FootTip_FL_visual">
+            <origin xyz="-1.5987211554602255e-15 -9.414691248821328e-16 -3.481659405224491e-15" rpy="-1.5707963267948937 3.810261676563871e-15 1.57" />
+            <geometry>
+                <mesh filename="meshes/FootTip.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="FootTip_FL_collision">
+            <origin xyz="-1.5987211554602255e-15 -9.414691248821328e-16 -3.481659405224491e-15" rpy="-1.5707963267948937 3.810261676563871e-15 2.617993877991497" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="FootTip_RR">
+        <inertial>
+            <origin xyz="1.1102230246251565e-15 -3.002043058586423e-15 0.005370312798366754" rpy="-3.913263876527171e-78 -0.0 0.0" />
+            <mass value="0.04476184024328765" />
+            <inertia ixx="1.0724750069317567e-05" iyy="1.0721691097843877e-05" izz="6.640270700887356e-06" ixy="2.649147005793139e-09" iyz="4.531286897875876e-22" ixz="-2.168401403827007e-19" />
+        </inertial>
+        <visual name="FootTip_RR_visual">
+            <origin xyz="1.1191048088221578e-15 -3.0109248427834246e-15 -7.887024366937113e-15" rpy="1.5707963267948954 3.6531145089503416e-15 -1.57" />
+            <geometry>
+                <mesh filename="meshes/FootTip.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="FootTip_RR_collision">
+            <origin xyz="1.1191048088221578e-15 -3.0109248427834246e-15 -7.887024366937113e-15" rpy="1.5707963267948954 3.6531145089503416e-15 0.5235987755982979" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="FootTip_FR">
+        <inertial>
+            <origin xyz="-9.237055564881303e-16 -6.394884621840901e-16 -0.005370312798378336" rpy="3.646298014371763e-62 -0.0 0.0" />
+            <mass value="0.04476184024328765" />
+            <inertia ixx="1.072475006932104e-05" iyy="1.0721691097850816e-05" izz="6.640270700887356e-06" ixy="2.6491470058473496e-09" iyz="-4.53128689788358e-22" ixz="-2.9411440014502333e-25" />
+        </inertial>
+        <visual name="FootTip_FR_visual">
+            <origin xyz="-9.237055564881303e-16 -6.217248937900877e-16 -3.694822225952521e-15" rpy="-1.5707963267948937 -1.5574447511541355e-15 -1.57" />
+            <geometry>
+                <mesh filename="meshes/FootTip.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="FootTip_FR_collision">
+            <origin xyz="-9.237055564881303e-16 -6.217248937900877e-16 -3.694822225952521e-15" rpy="-1.5707963267948937 -1.5574447511541355e-15 -2.617993877991498" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="FootTip_RL">
+        <inertial>
+            <origin xyz="-7.149836278586009e-15 -6.1994853695068745e-15 0.005370312798367536" rpy="0.0 -0.0 0.0" />
+            <mass value="0.04476184024328765" />
+            <inertia ixx="1.0724750069324506e-05" iyy="1.0721691097850816e-05" izz="6.6402707008875726e-06" ixy="-2.649147005820244e-09" iyz="-6.502947391464085e-19" ixz="1.0842020254283042e-18" />
+        </inertial>
+        <visual name="FootTip_RL_visual">
+            <origin xyz="-7.185363415374013e-15 -6.2705396430828846e-15 -7.176481631177012e-15" rpy="1.5707963267949117 -1.6816928688901678e-15 1.57" />
+            <geometry>
+                <mesh filename="meshes/FootTip.glb" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="FootTip_RL_collision">
+            <origin xyz="-7.185363415374013e-15 -6.2705396430828846e-15 -7.176481631177012e-15" rpy="1.5707963267949117 -1.6816928688901678e-15 2.617993877991498" />
+            <geometry>
+                <sphere radius="0.02" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="motor_thigh_FR" type="revolute">
+        <origin xyz="0.013999999999999806 -3.019806626980426e-16 0.04799999999999999" rpy="-3.1415926535897873 -6.201050645805781e-46 9.872843334225484e-32" />
+        <parent link="MotorThigh_FR" />
+        <child link="ThighReal_B_FR" />
+        <axis xyz="1.0 -9.872843334225484e-32 -7.871877887341968e-17" />
+        <limit lower="-4.71" upper="0.0" effort="17" velocity="30" />
+    </joint>
+    <joint name="knee_real_FR" type="revolute">
+        <origin xyz="0.05316986999999999 -0.012901919999999968 -0.16200000000000003" rpy="-1.0471975511966016 1.5707963267948963 0" />
+        <parent link="ThighReal_B_FR" />
+        <child link="CalfReal_B_FR" />
+        <axis xyz="-3.63014287241436e-47 -2.018922231061815e-07 0.9999996503124186" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="motor_thigh_FL" type="revolute">
+        <origin xyz="0.013999999999999803 -3.019806626980426e-16 0.04800000000000003" rpy="-3.1415926535897873 1.7801608346290345e-45 -2.8487313198343396e-31" />
+        <parent link="MotorThigh_FL" />
+        <child link="ThighReal_B_FL" />
+        <axis xyz="1.0 -2.2206051154327778e-31 -7.871877887342047e-17" />
+        <limit lower="0.0" upper="4.71" effort="17" velocity="30" />
+    </joint>
+    <joint name="knee_real_FL" type="revolute">
+        <origin xyz="0.05316986999999999 0.012901920000000039 -0.16200000000000003" rpy="1.0471975511965983 1.5707963267948963 0" />
+        <parent link="ThighReal_B_FL" />
+        <child link="CalfReal_B_FL" />
+        <axis xyz="-2.815593536467947e-31 -2.0189221988653472e-07 -0.9999996503124187" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="motor_thigh_RR" type="revolute">
+        <origin xyz="0.01400000000000012 -3.375077994860476e-16 0.04799999999999999" rpy="6.864597743292984e-15 6.279348993047133e-46 -8.868040000825204e-32" />
+        <parent link="MotorThigh_RR" />
+        <child link="ThighReal_B_RR" />
+        <axis xyz="1.0 5.181983501633053e-32 -7.871877887341968e-17" />
+        <limit lower="0.0" upper="4.71" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_thigh_RL" type="revolute">
+        <origin xyz="0.014000000000000113 -3.4638958368304885e-16 0.04800000000000001" rpy="7.0083281917035084e-15 -3.94430452610508e-31 2.8865316176674934e-31" />
+        <parent link="MotorThigh_RL" />
+        <child link="ThighReal_B_RL" />
+        <axis xyz="1.0 2.80405928573377e-31 -7.871877887342007e-17" />
+        <limit lower="-4.71" upper="0.0" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_calf_FL" type="revolute">
+        <origin xyz="0.05 0.0 0.0" rpy="3.141592653589793 1.5707963267948963 0" />
+        <parent link="ThighReal_B_FL" />
+        <child link="CalfOppo_B_FL" />
+        <axis xyz="0.0 3.250981824456962e-17 -1.0" />
+        <limit lower="-2.617994" upper="0.0" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_calf_RR" type="revolute">
+        <origin xyz="0.05000000000000001 0.0 0.0" rpy="3.141592653589793 1.5707963267948963 0" />
+        <parent link="ThighReal_B_RR" />
+        <child link="CalfOppo_B_RR" />
+        <axis xyz="1.232595164407831e-32 3.250981824456962e-17 -1.0" />
+        <limit lower="-2.617994" upper="0.0" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_calf_RL" type="revolute">
+        <origin xyz="0.05000000000000001 0.0 0.0" rpy="-1.107157073872998e-16 1.5707963267948963 0" />
+        <parent link="ThighReal_B_RL" />
+        <child link="CalfOppo_B_RL" />
+        <axis xyz="-3.944304526105059e-31 -1.1071570738730011e-16 1.0" />
+        <limit lower="0.0" upper="2.617994" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_calf_FR" type="revolute">
+        <origin xyz="0.05 0.0 0.0" rpy="-1.1071570738730017e-16 1.5707963267948963 0" />
+        <parent link="ThighReal_B_FR" />
+        <child link="CalfOppo_B_FR" />
+        <axis xyz="0.0 -1.107157073873001e-16 1.0" />
+        <limit lower="0.0" upper="2.617994" effort="17" velocity="30" />
+    </joint>
+    <joint name="knee_real_RR" type="revolute">
+        <origin xyz="0.05316987000000001 -0.012901920000000039 0.16200000000000003" rpy="1.0471975511965983 1.5707963267948963 0" />
+        <parent link="ThighReal_B_RR" />
+        <child link="CalfReal_B_RR" />
+        <axis xyz="1.9494527905372414e-33 -0.8660252018922192 0.4999996503124191" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="knee_real_RL" type="revolute">
+        <origin xyz="0.05316987000000001 0.012901919999999968 0.16200000000000003" rpy="-1.0471975511966016 1.5707963267948963 0" />
+        <parent link="ThighReal_B_RL" />
+        <child link="CalfReal_B_RL" />
+        <axis xyz="4.511871864738002e-33 -0.8660252018922174 -0.4999996503124219" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="knee_oppo_FL" type="revolute">
+        <origin xyz="0.16200000000000003 0.012901919999999997 -0.0031698699999999926" rpy="-1.5707963267948966 -2.815432847221185e-17 2.0943951023931953" />
+        <parent link="CalfOppo_B_FL" />
+        <child link="ThighOppo_B_FL" />
+        <axis xyz="-0.7499996503124184 0.49999999999999994 0.4330124999999999" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="knee_oppo_RR" type="revolute">
+        <origin xyz="-0.16200000000000003 -0.012901919999999997 -0.0031698699999999926" rpy="-1.5707963267948966 -2.8154328472212193e-17 2.0943951023931953" />
+        <parent link="CalfOppo_B_RR" />
+        <child link="ThighOppo_B_RR" />
+        <axis xyz="0.7499996503124186 0.5 -0.43301249999999997" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="knee_oppo_FR" type="revolute">
+        <origin xyz="0.16200000000000003 0.012901919999999997 0.0031698700000000013" rpy="-1.5707963267948968 9.588261519536653e-17 -2.0943951023931953" />
+        <parent link="CalfOppo_B_FR" />
+        <child link="ThighOppo_B_FR" />
+        <axis xyz="-0.7499996503124186 0.5 -0.43301249999999997" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="knee_oppo_RL" type="revolute">
+        <origin xyz="-0.16200000000000003 -0.012901919999999997 0.0031698699999999835" rpy="-1.5707963267948968 9.588261519536643e-17 -2.0943951023931953" />
+        <parent link="CalfOppo_B_RL" />
+        <child link="ThighOppo_B_RL" />
+        <axis xyz="0.7499996503124186 0.5 0.43301249999999997" />
+        <limit lower="0.0" upper="3.141593" effort="0" velocity="1000000" />
+    </joint>
+    <joint name="fix_tip_FL" type="fixed">
+        <origin xyz="0.215 0.005000004476012432 -0.003000001790525366" rpy="1.5707963267948966 -0.5235987755982983 1.5707963267948968" />
+        <parent link="CalfReal_B_FL" />
+        <child link="FootTip_FL" />
+    </joint>
+    <joint name="fix_tip_FR" type="fixed">
+        <origin xyz="0.215 -0.005000004476012432 -0.0030000017905253795" rpy="-1.5707963267948966 -0.523598775598295 -1.570796326794897" />
+        <parent link="CalfReal_B_FR" />
+        <child link="FootTip_FR" />
+    </joint>
+    <joint name="fix_tip_RL" type="fixed">
+        <origin xyz="-0.215 9.807552398751973e-05 0.005830131790525375" rpy="-1.5707963267948968 -0.523598775598295 -1.570796326794897" />
+        <parent link="CalfReal_B_RL" />
+        <child link="FootTip_RL" />
+    </joint>
+    <joint name="fix_tip_RR" type="fixed">
+        <origin xyz="-0.215 -9.807552398755082e-05 0.005830131790525375" rpy="1.5707963267948966 -0.5235987755982984 1.5707963267948968" />
+        <parent link="CalfReal_B_RR" />
+        <child link="FootTip_RR" />
+    </joint>
+    <joint name="motor_hip_FL" type="revolute">
+        <origin xyz="0.142 0.048 0.0" rpy="3.141592653589787 -1.5707963267948966 0" />
+        <parent link="MainBody" />
+        <child link="MotorThigh_FL" />
+        <axis xyz="0.0 -6.248960097551618e-15 1.0" />
+        <limit lower="-3.141593" upper="0.5236" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_hip_FR" type="revolute">
+        <origin xyz="0.142 -0.048 0.0" rpy="3.141592653589787 -1.5707963267948966 0" />
+        <parent link="MainBody" />
+        <child link="MotorThigh_FR" />
+        <axis xyz="0.0 -6.28091668821386e-15 1.0" />
+        <limit lower="-0.5236" upper="3.141593" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_hip_RL" type="revolute">
+        <origin xyz="-0.142 0.048 0.0" rpy="-7.224606259145271e-15 -1.5707963267948966 0" />
+        <parent link="MainBody" />
+        <child link="MotorThigh_RL" />
+        <axis xyz="0.0 -7.224606259145271e-15 1.0" />
+        <limit lower="-0.5236" upper="3.141593" effort="17" velocity="30" />
+    </joint>
+    <joint name="motor_hip_RR" type="revolute">
+        <origin xyz="-0.142 -0.048 0.0" rpy="-7.0808758107347466e-15 -1.5707963267948966 0" />
+        <parent link="MainBody" />
+        <child link="MotorThigh_RR" />
+        <axis xyz="0.0 -7.0808758107347466e-15 1.0" />
+        <limit lower="-3.141593" upper="0.5236" effort="17" velocity="30" />
+    </joint>
+    <!-- <joint name="end_joint_FL" type="continuous">
+        <origin xyz="-0.09217339047759449 0.013830129999999993 -0.13384515541307904" rpy="-3.898179352420329e-31 -1.5707963267948966 0" />
+        <parent link="ThighOppo_B_FL" />
+        <child link="CalfReal_B_FL" />
+        <axis xyz="1.8400431114934956e-31 0.9999999999999998 1.2148958941713289e-31" />
+    </joint>
+    <joint name="end_joint_FR" type="continuous">
+        <origin xyz="-0.06982660952240548 -0.013830130000000001 0.14674707541307905" rpy="1.0489692434302849e-30 0.5235987755982987 -1.377790743195048e-30" />
+        <parent link="ThighOppo_B_FR" />
+        <child link="CalfReal_B_FR" />
+        <axis xyz="-8.52434178201905e-31 0.9999999999999999 1.5056631026441527e-31" />
+    </joint>
+    <joint name="end_joint_RL" type="continuous">
+        <origin xyz="0.06982660952240548 -0.013830130000000001 -0.14674707541307905" rpy="6.580457488553629e-31 0.5235987755982987 -6.8798580527529415e-31" />
+        <parent link="ThighOppo_B_RL" />
+        <child link="CalfReal_B_RL" />
+        <axis xyz="-7.888609052210123e-31 1.0 -1.366347167947569e-30" />
+    </joint>
+    <joint name="end_joint_RR" type="continuous">
+        <origin xyz="0.09217339047759449 0.013830130000000001 0.13384515541307904" rpy="2.7659295169381843e-31 -1.5707963267948963 0" />
+        <parent link="ThighOppo_B_RR" />
+        <child link="CalfReal_B_RR" />
+        <axis xyz="3.4158679198689225e-31 1.0 -1.97215226305253e-31" />
+    </joint> -->
+</robot>
