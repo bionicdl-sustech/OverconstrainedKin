@@ -1,6 +1,6 @@
 # OverconstrainedKin (`ov_kin`)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/bionicdl-sustech/OverconstrainedKin/blob/main/visualize_in_colab.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/17ucathft0o7IDp-F7B2NsSsWmq3Kh4eW?usp=sharing)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
